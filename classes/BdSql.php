@@ -28,7 +28,7 @@ class BdSql
     }
 
     //Запрос с возвратом из бд в виде переданого класса
-    public function sqlQuery( $query , $class = 'stdClass' )
+    public function sqlQueryAll( $query , $class = 'stdClass' )
     {
         if ($result = $this->connect->query( $query )) {
 
@@ -42,6 +42,9 @@ class BdSql
         } else {
             return false;
         }
-
+    }
+    public function sqlQueryOne ( $query , $class = 'stdClass' )
+    {
+        return $this->sqlQueryAll( $query , $class )[0];
     }
 }

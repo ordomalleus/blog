@@ -12,7 +12,7 @@ class newsController {
     public function actionShowOne(){
 
         $id = $_GET['id'];
-        $item = News::getOne($id)[0];
+        $item = News::getOne($id);
         include_once __DIR__.'/../views/news/newsOne.php';
     }
 }
