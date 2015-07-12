@@ -43,6 +43,7 @@ class BdSql
             return false;
         }
     }
+    
     public function sqlQueryOne ( $query , $class = 'stdClass' )
     {
         return $this->sqlQueryAll( $query , $class )[0];
