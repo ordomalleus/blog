@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+    header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,13 +24,13 @@ header('Content-Type: text/html; charset=utf-8');
                     <p>Страница одной новости</p>
                 </div>
                 <div>
+                    <div>
+                        <h2><?php echo $new->title; ?></h2>
                         <div>
-                            <h2><?php echo $this->data['items']->title; ?></h2>
-                            <div>
-                                <p><?php echo $this->data['items']->text; ?></p>
-                            </div>
-                            <a href="/index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                            <p><?php echo $new->text; ?></p>
                         </div>
+                        <a href="/index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                    </div>
                 </div>
 
             </div>

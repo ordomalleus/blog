@@ -24,7 +24,7 @@
                     <p>Страница новостей</p>
                 </div>
                 <div>
-                    <?php foreach($this->data['items'] as $new): ?>
+                    <?php foreach($news as $new): ?>
                         <div>
                             <h2>
                                 <a href="<?php echo '/index.php?ctrl=news&act=ShowOne&id=' . $new->id; ?>">
