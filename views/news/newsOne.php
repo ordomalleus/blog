@@ -24,14 +24,13 @@ header('Content-Type: text/html; charset=utf-8');
                     <p>Страница одной новости</p>
                 </div>
                 <div>
-                    <?php //foreach($newsViews as $new): ?>
                         <div>
-                            <h2><?php echo $item->title; ?></h2>
+                            <h2><?php echo $this->data['items']->title; ?></h2>
                             <div>
-                                <p><?php echo $item->text; ?></p>
+                                <p><?php echo $this->data['items']->text; ?></p>
                             </div>
+                            <a href="/index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
                         </div>
-                    <?php //endforeach?>
                 </div>
 
             </div>

@@ -5,14 +5,17 @@ class newsController {
     public function actionShowAll(){
 
         $newsViews = News::getAll();
-        include_once __DIR__.'/../views/news/newsAll.php';
-
+        $view = new Views();
+        $view->assign('items' , $newsViews);
+        $view->display('news/newsAll.php');
     }
 
     public function actionShowOne(){
 
         $id = $_GET['id'];
-        $item = News::getOne($id);
-        include_once __DIR__.'/../views/news/newsOne.php';
+        $newsViews = News::getOne($id);
+        $view = new Views();
+        $view->assign('items' , $newsViews);
+        $view->display('news/newsOne.php');
     }
 }
