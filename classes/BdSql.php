@@ -32,6 +32,20 @@ class BdSql
     public function sqlDel( $query )
     {
 
+        $this->connect->set_charset("utf8");
+        if ($this->connect->query( $query )) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    //Запрос на обновление в бд без возврата
+    public function sqlUpdate( $query )
+    {
+        
+        $this->connect->set_charset("utf8");
         if ($this->connect->query( $query )) {
             return true;
         }

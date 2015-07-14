@@ -39,4 +39,22 @@ class newsController {
         $view = new Views();
         $view->redirect('index.php?ctrl=news&act=ShowAll');
     }
+    
+    public function actionUpdateForm() {
+
+        $id = $_GET['id'];
+        $newsViews = News::getOne($id);        
+        $view = new Views();
+        $view->new = $newsViews;
+        $view->display('news/newsUpdate.php');
+    }
+    
+    public function actionUpdate() {
+        $id = $_POST['id'];
+        $title = $_POST['newName'];
+        $text = $_POST['newText'];
+        $t = News::updateOne($id,$title, $text);
+        $view = new Views();
+        $view->redirect('index.php?ctrl=news&act=ShowAll');
+    }
 }

@@ -58,4 +58,29 @@ abstract class AbstractModelBlog {
         return $db->sqlExec($query);
       
     }
+    
+    public static function updateOne($id , $title , $text = '') {
+        if(isset($title) and isset($id)){
+          if(!empty($title) and !empty($id)){
+            $title = strip_tags($title);
+            if (isset($text) and !empty($text)){
+              $text = $text;
+            } else {
+              $text = '';
+            }
+          } else {
+            return FALSE;
+          }
+        } else {
+          return FALSE;
+        }
+
+        require_once __DIR__ . '/../../config.php';
+        
+        $db = new BdSql($config->server , $config->user , $config->password , $config->bd);
+        $query = "UPDATE " . static::$table . " SET "
+                . "title='" . $title . "',text='" . $text . "' WHERE id=" .$id;
+        return $db->sqlUpdate($query);
+      
+    }
 }
