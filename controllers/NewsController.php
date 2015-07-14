@@ -27,8 +27,9 @@ class newsController {
     public function actionAdd() {
         $title = $_POST['newName'];
         $text = $_POST['newText'];
-        $newsAdd = News::addOne($title, $text);
-        //$view = new Views();
+        News::addOne($title, $text);
+        $view = new Views();
+        $view->redirect('index.php?ctrl=news&act=ShowAll');
         //$view->display('index.php');
     }
     

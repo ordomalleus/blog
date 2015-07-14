@@ -49,5 +49,4 @@ abstract class AbstractModelBlog {
         return $db->sqlExec($query);
       
     }
-
 }
