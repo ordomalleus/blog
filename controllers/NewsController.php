@@ -55,6 +55,6 @@ class newsController {
         $text = $_POST['newText'];
         $t = News::updateOne($id,$title, $text);
         $view = new Views();
-        $view->redirect('index.php?ctrl=news&act=ShowAll');
+        $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $id);
     }
 }

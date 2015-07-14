@@ -25,23 +25,22 @@
                     <p>Страница одной новости</p>
                 </div>
                 <div>
+                    <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                    <a class="btn btn-warning" role="button" 
+                       href="<?php echo 'index.php?ctrl=news&act=UpdateForm&id=' . $new->id; ?>">
+                        Изменить новость
+                    </a>
+                    <a class="btn btn-danger" role="button" 
+                       href="<?php echo 'index.php?ctrl=news&act=Del&id=' . $new->id; ?>">
+                        Удалить новость
+                    </a>
                     <div>
                         <h2><?php echo $new->title; ?></h2>
                         <div>
                             <p><?php echo $new->text; ?></p>
                         </div>
-                        <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
-                        <a class="btn btn-warning" role="button" 
-                           href="<?php echo 'index.php?ctrl=news&act=UpdateForm&id=' . $new->id; ?>">
-                            Изменить новость
-                        </a>
-                        <a class="btn btn-danger" role="button" 
-                           href="<?php echo 'index.php?ctrl=news&act=Del&id=' . $new->id; ?>">
-                            Удалить новость
-                        </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
