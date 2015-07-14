@@ -24,6 +24,15 @@ abstract class AbstractModelBlog {
         $db = new BdSql($config->server , $config->user , $config->password , $config->bd);
         return  $db->sqlQueryOne('SELECT * FROM '.static::$table.' WHERE id=' . $id, static::$class);
     }
+
+    public static function delOne($id){
+
+        require_once __DIR__ . '/../../config.php';
+
+        $db = new BdSql($config->server , $config->user , $config->password , $config->bd);
+        $query = 'DELETE FROM ' . static::$table . ' WHERE id=' . $id;
+        return  $db->sqlDel($query);
+    }
     
     public static function addOne($title , $text = '') {
         if(isset($title)){

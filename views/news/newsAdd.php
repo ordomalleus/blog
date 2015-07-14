@@ -19,23 +19,28 @@
 <body>
 <section>
     <div class="container">
+        <div class="row-">
+            <col-md-12>
+                <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>                
+            </col-md-12>
+        </div>
         <div class="row">
             <div class="col-md-12">
               <form class="form-horizontal" accept-charset="UTF-8"
                     method="POST" action="index.php">
-                <input type="hidden" name="ctrl" value="news"/>
-                <input type="hidden" name="act" value="Add"/>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Загаловок Новости</label>
-                  <input type="text" class="form-control" 
+                    <input type="hidden" name="ctrl" value="news"/>
+                    <input type="hidden" name="act" value="Add"/>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Загаловок Новости</label>
+                        <input type="text" class="form-control" 
                          id="exampleInputEmail1" placeholder="Загаловок" name="newName">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Текст новости</label>
-                  <textarea class="form-control" rows="3" name="newText"></textarea>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Текст новости</label>
+                        <textarea class="form-control" rows="3" name="newText"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Обубликовать новость</button>
+                </form>
             </div>
         </div>
     </div>

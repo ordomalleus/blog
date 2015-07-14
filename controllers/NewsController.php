@@ -18,6 +18,14 @@ class newsController {
         $view->new = $newsViews;
         $view->display('news/newsOne.php');
     }
+
+    public function actionDel(){
+
+        $id = $_GET['id'];
+        $newsViews = News::delOne($id);
+        $view = new Views();
+        $view->redirect('index.php?ctrl=news&act=ShowAll');
+    }
     
     public function actionAddForm() {
         $view = new Views();
@@ -30,10 +38,5 @@ class newsController {
         News::addOne($title, $text);
         $view = new Views();
         $view->redirect('index.php?ctrl=news&act=ShowAll');
-        //$view->display('index.php');
-    }
-    
-    public function actionDel() {
-      
     }
 }

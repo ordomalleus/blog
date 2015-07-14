@@ -30,7 +30,11 @@
                         <div>
                             <p><?php echo $new->text; ?></p>
                         </div>
-                        <a href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                        <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                        <a class="btn btn-danger" role="button" 
+                           href="<?php echo 'index.php?ctrl=news&act=Del&id=' . $new->id; ?>">
+                            Удалить новость
+                        </a>
                     </div>
                 </div>
 

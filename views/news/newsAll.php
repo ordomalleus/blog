@@ -22,9 +22,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <p>Страница новостей</p>
-                    <br />
-                    <a href="index.php?ctrl=news&act=AddForm">Добавить новость</a>
+                    <h1>Страница новостей</h1>
+                    <a href="index.php" type="button" class="btn btn-primary">Вернуться на главную</a>
+                    <a href="index.php?ctrl=news&act=AddForm" type="button" class="btn btn-success">Добавить новость</a>
                 </div>
                 <div>
                     <?php foreach($news as $new): ?>
