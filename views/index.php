@@ -26,7 +26,7 @@ header('Content-Type: text/html; charset=utf-8');
                         <p>Главная страница</p>
                     </div>
                     <div>
-                        <a href="/index.php?ctrl=news&act=ShowAll">показать все новости</a>
+                        <a href="/blog/index.php?ctrl=news&act=ShowAll">показать все новости</a>
                     </div>
 
                 </div>

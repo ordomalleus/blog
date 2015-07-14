@@ -22,12 +22,14 @@
             <div class="col-md-12">
                 <div>
                     <p>Страница новостей</p>
+                    <br />
+                    <a href="/blog/index.php?ctrl=news&act=AddForm">Добавить новость</a>
                 </div>
                 <div>
                     <?php foreach($news as $new): ?>
                         <div>
                             <h2>
-                                <a href="<?php echo '/index.php?ctrl=news&act=ShowOne&id=' . $new->id; ?>">
+                                <a href="<?php echo '/blog/index.php?ctrl=news&act=ShowOne&id=' . $new->id; ?>">
                                     <?php echo $new->title; ?>
                                 </a>
                             </h2>

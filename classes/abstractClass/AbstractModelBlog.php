@@ -24,5 +24,30 @@ abstract class AbstractModelBlog {
         $db = new BdSql($config->server , $config->user , $config->password , $config->bd);
         return  $db->sqlQueryOne('SELECT * FROM '.static::$table.' WHERE id=' . $id, static::$class);
     }
+    
+    public static function addOne($title , $text = '') {
+        if(isset($title)){
+          if(!empty($title)){
+            $title = strip_tags($title);
+            if (isset($text) and !empty($text)){
+              $text = $text;
+            } else {
+              $text = '';
+            }
+          } else {
+            return FALSE;
+          }
+        } else {
+          return FALSE;
+        }
+
+        require_once __DIR__ . '/../../config.php';
+        
+        $db = new BdSql($config->server , $config->user , $config->password , $config->bd);
+        $query = "INSERT INTO " . static::$table . "(title, text) "
+                . "VALUES ('" . $title . "','" . $text . "')";
+        return $db->sqlExec($query);
+      
+    }
 
 }

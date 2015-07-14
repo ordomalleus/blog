@@ -6,7 +6,6 @@ class newsController {
 
         $newsViews = News::getAll();
         $view = new Views();
-        //$view->assign('items' , $newsViews);
         $view->news = $newsViews;
         $view->display('news/newsAll.php');
     }
@@ -16,8 +15,24 @@ class newsController {
         $id = $_GET['id'];
         $newsViews = News::getOne($id);
         $view = new Views();
-        //$view->assign('items' , $newsViews);
         $view->new = $newsViews;
         $view->display('news/newsOne.php');
+    }
+    
+    public function actionAddForm() {
+        $view = new Views();
+        $view->display('news/newsAdd.php');
+    }
+    
+    public function actionAdd() {
+        $title = $_POST['newName'];
+        $text = $_POST['newText'];
+        $newsAdd = News::addOne($title, $text);
+        //$view = new Views();
+        //$view->display('index.php');
+    }
+    
+    public function actionDel() {
+      
     }
 }

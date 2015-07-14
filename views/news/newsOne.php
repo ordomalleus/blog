@@ -29,7 +29,7 @@
                         <div>
                             <p><?php echo $new->text; ?></p>
                         </div>
-                        <a href="/index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                        <a href="/blog/index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
                     </div>
                 </div>
 
