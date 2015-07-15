@@ -26,7 +26,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
                     <h1>Главная страница</h1>
                 </div>
                 <div>
-                    <a class="btn btn-primary" role="button" href="/blog/index.php?ctrl=news&act=ShowAll">показать все
+                    <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">показать все
                         новости</a>
                 </div>
             </div>

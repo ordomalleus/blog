@@ -2,6 +2,7 @@
 
 
 abstract class AbstractModelBlog
+    implements INewsModels
 {
 
     protected static $table;
@@ -57,7 +58,7 @@ abstract class AbstractModelBlog
         } else {
             return false;
         }
-        
+
         require_once __DIR__.'/../../config.php';
         
         $db    = new BdSql( $config->server, $config->user, $config->password, $config->bd );
