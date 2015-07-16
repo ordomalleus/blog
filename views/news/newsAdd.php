@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-              <form class="form-horizontal" accept-charset="UTF-8"
+                <form id="newsAdd" class="form-horizontal" accept-charset="UTF-8"
                     method="POST" action="index.php">
                     <input type="hidden" name="ctrl" value="news"/>
                     <input type="hidden" name="act" value="Add"/>

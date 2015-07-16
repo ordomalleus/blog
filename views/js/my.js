@@ -6,4 +6,7 @@ $(window).load(function() {
   }});
 
 //  $("a.form").colorbox();
+    $(function(){
+        $('form#newsAdd').find('button');
+    })
 });
