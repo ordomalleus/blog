@@ -7,16 +7,18 @@ and open the template in the editor.
     Created on : 30.06.2015, 8:40:14
     Author     : ctsadm
 */
-.row{
+.row {
   margin: 10px 0;
 }
-form#upload-file{
+
+form#upload-file {
   margin: 20px 0;
   padding: 20px;
   background-color: #FFF;
   border: 1px solid #DDD;
   border-radius: 4px 4px 4px 4px;
 }
-a{
+
+a {
   margin: 10px;
 }

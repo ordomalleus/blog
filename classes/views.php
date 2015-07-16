@@ -1,39 +1,71 @@
 <?php
 
-class Views {
+class Views
+    implements Countable
+{
 
-    protected $data = [];
+    protected $data = [ ];
     
     
     //пустое значение если от корня или папку в /foo/
-    protected $redirectBase = '/blog/';
-    public $base = 'blog';
+    protected $redirectBase = '/';
+    public $base = '/';
 
     //Магия в ООП php. Задает произвольные свойства у объекта
-    public function __set($key , $value){
+    public function __set( $key, $value )
+    {
 
         $this->data[$key] = $value;
     }
 
-    public function assign($name, $value){
+    public function __get($key)
+    {
+
+        return $this->data[$key];
+
+    }
+
+    public function assign( $name, $value )
+    {
 
         $this->data[$name] = $value;
 
     }
 
-    public function display($template){
+    public function render( $template )
+    {
 
-        foreach ($this->data as $key => $val){
+        foreach ($this->data as $key => $val) {
             $$key = $val;
         }
+
+        ob_start();
         include __DIR__.'/../views/'.$template;
+        $content = ob_get_contents();
+        ob_end_clean();
+
+        return $content;
 
     }
 
-    public function redirect($template){
+    public function display( $template )
+    {
 
-        header('Location: http://'. $_SERVER['HTTP_HOST'] . $this->redirectBase . $template);
+        echo $this->render($template);
 
     }
 
+    public function redirect( $template )
+    {
+
+        header( 'Location: http://'.$_SERVER['HTTP_HOST'].$this->redirectBase.$template );
+
+    }
+
+    public function count()
+    {
+
+        return count($this->data);
+
+    }
 }

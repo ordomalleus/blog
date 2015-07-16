@@ -1,60 +1,68 @@
 <?php
 
-class newsController {
+class newsController
+{
 
-    public function actionShowAll(){
+    public function actionShowAll()
+    {
 
-        $newsViews = News::getAll();
-        $view = new Views();
+        $newsViews  = News::getAll();
+        $view       = new Views();
         $view->news = $newsViews;
-        $view->display('news/newsAll.php');
+        $view->display( 'news/newsAll.php' );
     }
 
-    public function actionShowOne(){
+    public function actionShowOne()
+    {
 
-        $id = $_GET['id'];
-        $newsViews = News::getOne($id);
-        $view = new Views();
+        $id        = $_GET['id'];
+        $newsViews = News::getOne( $id );
+        $view      = new Views();
         $view->new = $newsViews;
-        $view->display('news/newsOne.php');
+        $view->display( 'news/newsOne.php' );
     }
 
-    public function actionDel(){
+    public function actionDel()
+    {
 
-        $id = $_GET['id'];
-        $newsViews = News::delOne($id);
-        $view = new Views();
-        $view->redirect('index.php?ctrl=news&act=ShowAll');
+        $id        = $_GET['id'];
+        $newsViews = News::delOne( $id );
+        $view      = new Views();
+        $view->redirect( 'index.php?ctrl=news&act=ShowAll' );
     }
     
-    public function actionAddForm() {
+    public function actionAddForm()
+    {
         $view = new Views();
-        $view->display('news/newsAdd.php');
+        $view->display( 'news/newsAdd.php' );
     }
     
-    public function actionAdd() {
+    public function actionAdd()
+    {
         $title = $_POST['newName'];
-        $text = $_POST['newText'];
-        News::addOne($title, $text);
+        $text  = $_POST['newText'];
+        News::addOne( $title, $text );
         $view = new Views();
-        $view->redirect('index.php?ctrl=news&act=ShowAll');
+        $view->redirect( 'index.php?ctrl=news&act=ShowAll' );
     }
     
-    public function actionUpdateForm() {
+    public function actionUpdateForm()
+    {
 
-        $id = $_GET['id'];
-        $newsViews = News::getOne($id);        
-        $view = new Views();
+        $id        = $_GET['id'];
+        $newsViews = News::getOne( $id );
+        $view      = new Views();
         $view->new = $newsViews;
-        $view->display('news/newsUpdate.php');
+        $view->display( 'news/newsUpdate.php' );
     }
     
-    public function actionUpdate() {
-        $id = $_POST['id'];
+    public function actionUpdate()
+    {
+        $id    = $_POST['id'];
         $title = $_POST['newName'];
-        $text = $_POST['newText'];
-        $t = News::updateOne($id,$title, $text);
-        $view = new Views();
-        $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $id);
+        $text  = $_POST['newText'];
+        $t     = News::updateOne( $id, $title, $text );
+        $view  = new Views();
+        $view->redirect( 'index.php?ctrl=news&act=ShowOne&id='.$id );
     }
 }

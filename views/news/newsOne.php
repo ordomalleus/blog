@@ -1,12 +1,12 @@
 <?php
-    header('Content-Type: text/html; charset=utf-8');
+header( 'Content-Type: text/html; charset=utf-8' );
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="<?php echo $this->base;?>" />
+    <base href="<?php echo $this->base; ?>"/>
     <link href="views/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="views/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="views/css/colorbox.css" rel="stylesheet" type="text/css"/>
@@ -25,17 +25,20 @@
                     <p>Страница одной новости</p>
                 </div>
                 <div>
-                    <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
-                    <a class="btn btn-warning" role="button" 
-                       href="<?php echo 'index.php?ctrl=news&act=UpdateForm&id=' . $new->id; ?>">
+                    <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к
+                        новостям</a>
+                    <a class="btn btn-warning" role="button"
+                       href="<?php echo 'index.php?ctrl=news&act=UpdateForm&id='.$new->id; ?>">
                         Изменить новость
                     </a>
-                    <a class="btn btn-danger" role="button" 
-                       href="<?php echo 'index.php?ctrl=news&act=Del&id=' . $new->id; ?>">
+                    <a class="btn btn-danger" role="button"
+                       href="<?php echo 'index.php?ctrl=news&act=Del&id='.$new->id; ?>">
                         Удалить новость
                     </a>
+
                     <div>
                         <h2><?php echo $new->title; ?></h2>
+
                         <div>
                             <p><?php echo $new->text; ?></p>
                         </div>
