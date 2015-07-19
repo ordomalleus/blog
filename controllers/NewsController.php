@@ -5,7 +5,24 @@ class newsController
 
     public function actionShowAll()
     {
+        $news = NewsModels::getAll();
+        $view = new Views();
+        $view->news = $news;
+        $view->display( 'news/newsAll.php' );
+    }
 
+    public function actionShowOne()
+    {
+        $id        = $_GET['id'];
+        $news = NewsModels::getOne($id);
+        $view      = new Views();
+        $view->new = $news[0];
+        //var_dump($view->new);die;
+        $view->display( 'news/newsOne.php' );
+    }
+    /*
+    public function actionShowAll()
+    {
         $newsViews  = News::getAll();
         $view       = new Views();
         $view->news = $newsViews;
@@ -14,7 +31,6 @@ class newsController
 
     public function actionShowOne()
     {
-
         $id        = $_GET['id'];
         $newsViews = News::getOne( $id );
         $view      = new Views();
@@ -24,7 +40,6 @@ class newsController
 
     public function actionDel()
     {
-
         $id        = $_GET['id'];
         $newsViews = News::delOne( $id );
         $view      = new Views();
@@ -48,7 +63,6 @@ class newsController
     
     public function actionUpdateForm()
     {
-
         $id        = $_GET['id'];
         $newsViews = News::getOne( $id );
         $view      = new Views();
@@ -65,4 +79,5 @@ class newsController
         $view  = new Views();
         $view->redirect( 'index.php?ctrl=news&act=ShowOne&id='.$id );
     }
+    */
 }
