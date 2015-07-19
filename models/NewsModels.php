@@ -1,7 +1,8 @@
 <?php
 
 
-class NewsModels extends AbstractModelNews{
+class NewsModels extends AbstractModelNews
+{
 
     protected static $table = 'news';
 

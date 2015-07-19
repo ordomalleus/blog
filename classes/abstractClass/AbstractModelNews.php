@@ -1,6 +1,7 @@
 <?php
 
-abstract class AbstractModelNews {
+abstract class AbstractModelNews
+{
 
     static protected $table;
 
@@ -13,21 +14,21 @@ abstract class AbstractModelNews {
     {
         require_once __DIR__.'/../../config.php';
 
-        $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
+        $db = new PdoSql( $config->bd, $config->server, $config->user, $config->password );
 
         $query = 'SELECT * FROM '.static::$table;
 
-        return $db->query($query);
+        return $db->query( $query );
     }
 
     public static function getOne( $id )
     {
         require_once __DIR__.'/../../config.php';
 
-        $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
+        $db = new PdoSql( $config->bd, $config->server, $config->user, $config->password );
 
-        $query = 'SELECT * FROM ' . static::$table . ' WHERE id=:id';
+        $query = 'SELECT * FROM '.static::$table.' WHERE id=:id';
 
-        return $db->query($query , [':id' => $id] );
+        return $db->query( $query, [ ':id' => $id ] );
     }
 }
