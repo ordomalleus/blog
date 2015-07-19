@@ -16,7 +16,10 @@ abstract class AbstractModelNews
 
         $db = new PdoSql( $config->bd, $config->server, $config->user, $config->password );
 
-        $query = 'SELECT * FROM '.static::$table;
+        $class = get_called_class();
+        $db->setClassName($class);
+
+        $query = 'SELECT * FROM '.static::getTable();
 
         return $db->query( $query );
     }
@@ -27,8 +30,11 @@ abstract class AbstractModelNews
 
         $db = new PdoSql( $config->bd, $config->server, $config->user, $config->password );
 
-        $query = 'SELECT * FROM '.static::$table.' WHERE id=:id';
+        $class = get_called_class();
+        $db->setClassName($class);
 
-        return $db->query( $query, [ ':id' => $id ] );
+        $query = 'SELECT * FROM '.static::getTable().' WHERE id=:id';
+
+        return $db->query( $query, [ ':id' => $id ] )[0];
     }
 }

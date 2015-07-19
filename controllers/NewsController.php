@@ -6,6 +6,7 @@ class newsController
     public function actionShowAll()
     {
         $news       = NewsModels::getAll();
+        //var_dump($news);die;
         $view       = new Views();
         $view->news = $news;
         $view->display( 'news/newsAll.php' );
@@ -16,7 +17,7 @@ class newsController
         $id        = $_GET['id'];
         $news      = NewsModels::getOne( $id );
         $view      = new Views();
-        $view->new = $news[0];
+        $view->new = $news;
         //var_dump($view->new);die;
         $view->display( 'news/newsOne.php' );
     }
