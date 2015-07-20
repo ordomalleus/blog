@@ -52,6 +52,22 @@ abstract class AbstractModelNews
 
         return $db->query( $query, [ ':id' => $id ] )[0];
     }
+
+    //поиск по заданому полю в таблице и значению(Например поиск по имени загаловка)
+    public static function getOneColumn($column , $value)
+    {
+        require_once __DIR__.'/../../config.php';
+        $db = new PdoSql( $config->bd, $config->server, $config->user, $config->password );
+        $db->setClassName( get_called_class() );
+
+        $query = 'SELECT * FROM '.static::getTable().' WHERE ' . $column . '=:value';
+        $res = $db->query( $query, [ ':value' => $value ] );
+
+        if (!empty( $res )){
+            return $res[0];
+        }
+        return false;
+    }
     
     public function insert()
     {
