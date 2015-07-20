@@ -1,8 +1,10 @@
 <?php
 
-interface INewsModels {
+interface INewsModels
+{
 
     public static function getAll();
-    public static function getOne($id);
+
+    public static function getOne( $id );
 
 }

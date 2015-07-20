@@ -1,5 +1,7 @@
 <?php
 
+error_reporting( E_ALL );
+
 require_once __DIR__.'/autoload/autoload.php';
 
 $ctrl = isset( $_GET['ctrl'] ) ? $_GET['ctrl'] : 'home';

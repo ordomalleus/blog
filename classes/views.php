@@ -1,7 +1,7 @@
 <?php
 
 class Views
-    implements Countable
+    implements Countable, Iterator
 {
 
     protected $data = [ ];
@@ -18,7 +18,7 @@ class Views
         $this->data[$key] = $value;
     }
 
-    public function __get($key)
+    public function __get( $key )
     {
 
         return $this->data[$key];
@@ -51,7 +51,7 @@ class Views
     public function display( $template )
     {
 
-        echo $this->render($template);
+        echo $this->render( $template );
 
     }
 
@@ -65,7 +65,34 @@ class Views
     public function count()
     {
 
-        return count($this->data);
+        return count( $this->data );
 
+    }
+
+    //интерфейс Countable для перебора массива $data = [ ];
+    //нужно исправлять, пока не работает
+    public function current()
+    {
+        current( $this->data );
+    }
+
+    public function next()
+    {
+        next( $this->data );
+    }
+
+    public function key()
+    {
+        key( $this->data );
+    }
+
+    public function valid()
+    {
+        valid( $this->data );
+    }
+
+    public function rewind()
+    {
+        reset( $this->data );
     }
 }
