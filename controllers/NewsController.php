@@ -28,9 +28,9 @@ class newsController
     
     public function actionAdd()
     {
-        $artical = new NewsModels();
+        $artical        = new NewsModels();
         $artical->title = $_POST['newName'];
-        $artical->text = $_POST['newText'];
+        $artical->text  = $_POST['newText'];
         $artical->insert();
         $view = new Views();
         $view->redirect( 'index.php?ctrl=news&act=ShowAll' );

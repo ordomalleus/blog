@@ -11,10 +11,10 @@ class PdoSql
         $this->dbh = new PDO( 'mysql:dbname='.$baseBd.';charset=UTF8;host='.$serverBd.';', $userBd, $pwdBd );
     }
 
-    public function setClassName($className)
+    public function setClassName( $className )
     {
         $this->className = $className;
-    }    
+    }
     
     //подготовленный запрос в базу на получение данных
     //в нужном формате заданного класса
@@ -30,6 +30,7 @@ class PdoSql
     public function execute( $sql, $params = [ ] )
     {
         $sth = $this->dbh->prepare( $sql );
+
         return $sth->execute( $params );
     }
 
