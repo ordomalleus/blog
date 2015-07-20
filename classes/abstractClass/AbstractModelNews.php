@@ -15,6 +15,10 @@ abstract class AbstractModelNews
     {
         return $this->data[$name];
     }
+    
+    public function __isset($name) {
+        return isset($this->data[$name]);
+    }
 
     public static function getTable()
     {
@@ -25,12 +29,11 @@ abstract class AbstractModelNews
     {
         require_once __DIR__.'/../../config.php';
 
-        $db = new PdoSql( $config->bd, $config->server, $config->user, $config->password );
-
         $class = get_called_class();
-        $db->setClassName($class);
-
         $query = 'SELECT * FROM '.static::getTable();
+
+        $db = new PdoSql( $config->bd, $config->server, $config->user, $config->password );
+        $db->setClassName($class);
 
         return $db->query( $query );
     }
