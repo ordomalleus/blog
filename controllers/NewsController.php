@@ -6,7 +6,6 @@ class newsController
     public function actionShowAll()
     {
         $news       = NewsModels::getAll();
-        //var_dump($news);die;
         $view       = new Views();
         $view->news = $news;
         $view->display( 'news/newsAll.php' );
@@ -18,8 +17,23 @@ class newsController
         $news      = NewsModels::getOne( $id );
         $view      = new Views();
         $view->new = $news;
-        //var_dump($view->new);die;
         $view->display( 'news/newsOne.php' );
+    }
+    
+    public function actionAddForm()
+    {
+        $view = new Views();
+        $view->display( 'news/newsAdd.php' );
+    }
+    
+    public function actionAdd()
+    {
+        $artical = new NewsModels();
+        $artical->title = $_POST['newName'];
+        $artical->text = $_POST['newText'];
+        $artical->insert();
+        $view = new Views();
+        $view->redirect( 'index.php?ctrl=news&act=ShowAll' );
     }
     /*
     public function actionShowAll()
