@@ -58,7 +58,7 @@ abstract class AbstractModelNews
         return false;
     }
 
-    //поиск по заданому полю в таблице и значению(Например поиск по имени загаловка\ или поиск по id)
+    //РџРѕРёСЃРє РїРѕ РїРѕР»СЋ Рё Р·РЅР°С‡РµРЅРёСЋ, РІРѕР·РІСЂР°С‰Р°РµС‚ РѕР±РµРєС‚
     public static function getOneColumn($column, $value)
     {
         $config = new Config();
@@ -75,7 +75,7 @@ abstract class AbstractModelNews
         return false;
     }
 
-    public function insert()
+    protected function insert()
     {
         $config = new Config();
 
@@ -99,7 +99,7 @@ abstract class AbstractModelNews
         return $res;
     }
 
-    public function update()
+    protected function update()
     {
         $config = new Config();
         $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
@@ -121,5 +121,29 @@ abstract class AbstractModelNews
         ';
 
         return $db->execute($query, $data);
+    }
+
+    public function delete()
+    {
+        $config = new Config();
+        $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
+
+        $data = ['id' => $this->data['id']];
+
+        $query = '
+            DELETE FROM ' . static::$table . '
+            WHERE id=:id
+        ';
+
+        return $db->execute($query, $data);
+    }
+
+    public function save()
+    {
+        if(!isset($this->id)){
+            $this->insert();
+        } else {
+            $this->update();
+        }
     }
 }

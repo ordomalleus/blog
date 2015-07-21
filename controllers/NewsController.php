@@ -31,7 +31,7 @@ class newsController
         $news = new NewsModels();
         $news->title = $_POST['newName'];
         $news->text = $_POST['newText'];
-        $news->insert();
+        $news->save();
         $view = new Views();
         $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $news->id);
     }
@@ -51,68 +51,17 @@ class newsController
         $news = NewsModels::getOneColumn('id', $id);
         $news->title = $_POST['newName'];
         $news->text = $_POST['newText'];
-        $news->update();
+        $news->save();
         $view = new Views();
         $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $news->id);
-    }
-    /*
-    public function actionShowAll()
-    {
-        $newsViews  = News::getAll();
-        $view       = new Views();
-        $view->news = $newsViews;
-        $view->display( 'news/newsAll.php' );
-    }
-
-    public function actionShowOne()
-    {
-        $id        = $_GET['id'];
-        $newsViews = News::getOne( $id );
-        $view      = new Views();
-        $view->new = $newsViews;
-        $view->display( 'news/newsOne.php' );
     }
 
     public function actionDel()
     {
-        $id        = $_GET['id'];
-        $newsViews = News::delOne( $id );
-        $view      = new Views();
-        $view->redirect( 'index.php?ctrl=news&act=ShowAll' );
-    }
-    
-    public function actionAddForm()
-    {
+        $id = $_GET['id'];
+        $news = NewsModels::getOneColumn('id', $id);
+        $news->delete();
         $view = new Views();
-        $view->display( 'news/newsAdd.php' );
+        $view->redirect('index.php?ctrl=news&act=ShowAll');
     }
-    
-    public function actionAdd()
-    {
-        $title = $_POST['newName'];
-        $text  = $_POST['newText'];
-        News::addOne( $title, $text );
-        $view = new Views();
-        $view->redirect( 'index.php?ctrl=news&act=ShowAll' );
-    }
-    
-    public function actionUpdateForm()
-    {
-        $id        = $_GET['id'];
-        $newsViews = News::getOne( $id );
-        $view      = new Views();
-        $view->new = $newsViews;
-        $view->display( 'news/newsUpdate.php' );
-    }
-    
-    public function actionUpdate()
-    {
-        $id    = $_POST['id'];
-        $title = $_POST['newName'];
-        $text  = $_POST['newText'];
-        $t     = News::updateOne( $id, $title, $text );
-        $view  = new Views();
-        $view->redirect( 'index.php?ctrl=news&act=ShowOne&id='.$id );
-    }
-    */
 }
