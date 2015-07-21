@@ -8,5 +8,3 @@ class Config
     public $password = '7895123';
     public $bd = 'blog';
 }
-
-$config = new Config();

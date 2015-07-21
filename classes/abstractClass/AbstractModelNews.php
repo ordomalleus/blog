@@ -108,15 +108,15 @@ abstract class AbstractModelNews
         $data = [];
         foreach ($this->data as $key => $value) {
             $data[':' . $key] = $value;
-            if('id' == $key){
+            if ('id' == $key) {
                 continue;
             }
             $cols[] = $key . '=:' . $key;
         }
 
-         $query = '
+        $query = '
             UPDATE ' . static::$table . '
-            SET ' . implode(', ', $cols)  . '
+            SET ' . implode(', ', $cols) . '
             WHERE id=:id
         ';
 
