@@ -1,5 +1,5 @@
 <?php
-header( 'Content-Type: text/html; charset=utf-8' );
+header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -28,11 +28,11 @@ header( 'Content-Type: text/html; charset=utf-8' );
                     <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к
                         новостям</a>
                     <a class="btn btn-warning" role="button"
-                       href="<?php echo 'index.php?ctrl=news&act=UpdateForm&id='.$new->id; ?>">
+                       href="<?php echo 'index.php?ctrl=news&act=UpdateForm&id=' . $new->id; ?>">
                         Изменить новость
                     </a>
                     <a class="btn btn-danger" role="button"
-                       href="<?php echo 'index.php?ctrl=news&act=Del&id='.$new->id; ?>">
+                       href="<?php echo 'index.php?ctrl=news&act=Del&id=' . $new->id; ?>">
                         Удалить новость
                     </a>
 

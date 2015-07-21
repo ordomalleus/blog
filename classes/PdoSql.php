@@ -6,32 +6,42 @@ class PdoSql
     private $dbh;
     private $className = 'stdClass';
 
-    public function __construct( $baseBd, $serverBd, $userBd, $pwdBd )
+    public function __construct($baseBd, $serverBd, $userBd, $pwdBd)
     {
-        $this->dbh = new PDO( 'mysql:dbname='.$baseBd.';charset=UTF8;host='.$serverBd.';', $userBd, $pwdBd );
+        $this->dbh = new PDO('mysql:dbname=' . $baseBd . ';charset=UTF8;host=' . $serverBd . ';', $userBd, $pwdBd);
     }
 
-    public function setClassName( $className )
+    public function setClassName($className)
     {
         $this->className = $className;
     }
-    
+
     //подготовленный запрос в базу на получение данных
     //в нужном формате заданного класса
-    public function query( $sql, $params = [ ] )
+    public function query($sql, $params = [])
     {
-        $sth = $this->dbh->prepare( $sql );
-        $sth->execute( $params );
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
 
-        return $sth->fetchAll( PDO::FETCH_CLASS, $this->className );
+        return $sth->fetchAll(PDO::FETCH_CLASS, $this->className);
     }
-    
-    //подготовленный запрос в базу на запись данных
-    public function execute( $sql, $params = [ ] )
-    {
-        $sth = $this->dbh->prepare( $sql );
 
-        return $sth->execute( $params );
+    //подготовленный запрос в базу на запись данных
+    public function execute($sql, $params = [])
+    {
+        //var_dump($params);
+        //echo $sql;die;
+        $sth = $this->dbh->prepare($sql);
+        //var_dump($sth);die;
+
+        $sth->execute($params);
+        //var_dump($sth->errorInfo());die;
+    }
+
+    //Получить последнее изменение в бд
+    public function lastInsertId()
+    {
+        return $this->dbh->lastInsertId();
     }
 
 }

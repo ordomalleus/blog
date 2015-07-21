@@ -9,18 +9,18 @@ class BdSql
 
     private $connect;
 
-    public function __construct( $serverBd, $userBd, $pwdBd, $baseBd )
+    public function __construct($serverBd, $userBd, $pwdBd, $baseBd)
     {
 
-        $this->connect = new mysqli( $serverBd, $userBd, $pwdBd, $baseBd );
+        $this->connect = new mysqli($serverBd, $userBd, $pwdBd, $baseBd);
     }
 
     //Запрос на запись в бд без возврата
-    public function sqlExec( $query )
+    public function sqlExec($query)
     {
-        
-        $this->connect->set_charset( "utf8" );
-        if ($this->connect->query( $query )) {
+
+        $this->connect->set_charset("utf8");
+        if ($this->connect->query($query)) {
             return true;
         }
 
@@ -29,11 +29,11 @@ class BdSql
     }
 
     //Запрос на удаление в бд без возврата
-    public function sqlDel( $query )
+    public function sqlDel($query)
     {
 
-        $this->connect->set_charset( "utf8" );
-        if ($this->connect->query( $query )) {
+        $this->connect->set_charset("utf8");
+        if ($this->connect->query($query)) {
             return true;
         }
 
@@ -42,11 +42,11 @@ class BdSql
     }
 
     //Запрос на обновление в бд без возврата
-    public function sqlUpdate( $query )
+    public function sqlUpdate($query)
     {
-        
-        $this->connect->set_charset( "utf8" );
-        if ($this->connect->query( $query )) {
+
+        $this->connect->set_charset("utf8");
+        if ($this->connect->query($query)) {
             return true;
         }
 
@@ -55,13 +55,13 @@ class BdSql
     }
 
     //Запрос с возвратом из бд в виде переданого класса
-    public function sqlQueryAll( $query, $class = 'stdClass' )
+    public function sqlQueryAll($query, $class = 'stdClass')
     {
-        $this->connect->set_charset( "utf8" );
-        if ($result = $this->connect->query( $query )) {
+        $this->connect->set_charset("utf8");
+        if ($result = $this->connect->query($query)) {
 
-            $ret = [ ];
-            while ($row = $result->fetch_object( $class )) {
+            $ret = [];
+            while ($row = $result->fetch_object($class)) {
                 $ret[] = $row;
             }
             $result->free();
@@ -72,8 +72,8 @@ class BdSql
         }
     }
 
-    public function sqlQueryOne( $query, $class = 'stdClass' )
+    public function sqlQueryOne($query, $class = 'stdClass')
     {
-        return $this->sqlQueryAll( $query, $class )[0];
+        return $this->sqlQueryAll($query, $class)[0];
     }
 }

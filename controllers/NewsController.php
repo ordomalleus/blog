@@ -5,35 +5,57 @@ class newsController
 
     public function actionShowAll()
     {
-        $news       = NewsModels::getAll();
-        $view       = new Views();
+        $news = NewsModels::getAll();
+        $view = new Views();
         $view->news = $news;
-        $view->display( 'news/newsAll.php' );
+        $view->display('news/newsAll.php');
     }
 
     public function actionShowOne()
     {
-        $id        = $_GET['id'];
-        $news      = NewsModels::getOne( $id );
-        $view      = new Views();
+        $id = $_GET['id'];
+        $news = NewsModels::getOne($id);
+        $view = new Views();
         $view->new = $news;
-        $view->display( 'news/newsOne.php' );
+        $view->display('news/newsOne.php');
     }
-    
+
     public function actionAddForm()
     {
         $view = new Views();
-        $view->display( 'news/newsAdd.php' );
+        $view->display('news/newsAdd.php');
     }
-    
+
     public function actionAdd()
     {
-        $artical        = new NewsModels();
-        $artical->title = $_POST['newName'];
-        $artical->text  = $_POST['newText'];
-        $artical->insert();
+        $news = new NewsModels();
+        $news->title = $_POST['newName'];
+        $news->text = $_POST['newText'];
+        $news->insert();
         $view = new Views();
-        $view->redirect( 'index.php?ctrl=news&act=ShowAll' );
+        $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $news->id);
+    }
+
+    public function actionUpdateForm()
+    {
+        $news = new NewsModels();
+        $id = $_GET['id'];
+        $news = $news::getOneColumn('id', $id);
+        $view = new Views();
+        $view->new = $news;
+        $view->display('news/newsUpdate.php');
+    }
+
+    public function actionUpdate()
+    {
+        $id = $_POST['id'];
+        $news = NewsModels::getOneColumn('id', $id);
+        $news->title = $_POST['newName'];
+        $news->text = $_POST['newText'];
+        $news->update();
+        var_dump($news->update());die;
+        $view = new Views();
+        $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $news->id);
     }
     /*
     public function actionShowAll()

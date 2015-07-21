@@ -1,5 +1,5 @@
 <?php
-header( 'Content-Type: text/html; charset=utf-8' );
+header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -30,7 +30,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
                     <?php foreach ($news as $new): ?>
                         <div>
                             <h2>
-                                <a href="<?php echo 'index.php?ctrl=news&act=ShowOne&id='.$new->id; ?>">
+                                <a href="<?php echo 'index.php?ctrl=news&act=ShowOne&id=' . $new->id; ?>">
                                     <?php echo $new->title; ?>
                                 </a>
                             </h2>
