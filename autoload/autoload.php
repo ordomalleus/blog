@@ -10,6 +10,8 @@ function __autoload($class)
         require_once __DIR__ . '/../classes/' . $class . '.php';
     } elseif (file_exists(__DIR__ . '/../classes/abstractClass/' . $class . '.php')) {
         require_once __DIR__ . '/../classes/abstractClass/' . $class . '.php';
+    } elseif (file_exists(__DIR__ . '/../' . $class . '.php')) {
+        require_once __DIR__ . '/../' . $class . '.php';
     }
 
 }

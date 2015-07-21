@@ -28,7 +28,7 @@ abstract class AbstractModelNews
 
     public static function getAll()
     {
-        require_once __DIR__ . '/../../config.php';
+        $config = new Config();
 
         $class = get_called_class();
         $query = 'SELECT * FROM ' . static::getTable();
@@ -41,7 +41,7 @@ abstract class AbstractModelNews
 
     public static function getOne($id)
     {
-        require_once __DIR__ . '/../../config.php';
+        $config = new Config();
 
         $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
 
@@ -61,8 +61,9 @@ abstract class AbstractModelNews
     //поиск по заданому полю в таблице и значению(Например поиск по имени загаловка\ или поиск по id)
     public static function getOneColumn($column, $value)
     {
-        require_once __DIR__ . '/../../config.php';
+        $config = new Config();
         $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
+
         $db->setClassName(get_called_class());
 
         $query = 'SELECT * FROM ' . static::getTable() . ' WHERE ' . $column . '=:value';
@@ -76,7 +77,7 @@ abstract class AbstractModelNews
 
     public function insert()
     {
-        require_once __DIR__ . '/../../config.php';
+        $config = new Config();
 
         $cols = array_keys($this->data);
 
@@ -100,28 +101,24 @@ abstract class AbstractModelNews
 
     public function update()
     {
-        require_once __DIR__ . '/../../config.php';
+        $config = new Config();
         $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
 
         $cols = [];
         $data = [];
         foreach ($this->data as $key => $value) {
             $data[':' . $key] = $value;
-            if('id' === $key){
+            if('id' == $key){
                 continue;
             }
             $cols[] = $key . '=:' . $key;
         }
-        //var_dump($cols);echo '<br>';var_dump($data);die;
 
          $query = '
             UPDATE ' . static::$table . '
             SET ' . implode(', ', $cols)  . '
             WHERE id=:id
         ';
-        //var_dump($data);die;
-
-         //$query = 'UPDATE ' . static::$table . ' SET ' . implode(', ', $cols) . ' WHERE id=:id';
 
         return $db->execute($query, $data);
     }

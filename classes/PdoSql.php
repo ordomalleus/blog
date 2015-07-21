@@ -8,7 +8,8 @@ class PdoSql
 
     public function __construct($baseBd, $serverBd, $userBd, $pwdBd)
     {
-        $this->dbh = new PDO('mysql:dbname=' . $baseBd . ';charset=UTF8;host=' . $serverBd . ';', $userBd, $pwdBd);
+        $this->dbh = new PDO('mysql:host=' . $serverBd . ';dbname=' . $baseBd . ';charset=UTF8;', $userBd, $pwdBd);
+        //var_dump($this->dbh);die;
     }
 
     public function setClassName($className)
@@ -29,13 +30,9 @@ class PdoSql
     //подготовленный запрос в базу на запись данных
     public function execute($sql, $params = [])
     {
-        //var_dump($params);
-        //echo $sql;die;
         $sth = $this->dbh->prepare($sql);
-        //var_dump($sth);die;
 
-        $sth->execute($params);
-        //var_dump($sth->errorInfo());die;
+        return $sth->execute($params);
     }
 
     //Получить последнее изменение в бд

@@ -38,9 +38,8 @@ class newsController
 
     public function actionUpdateForm()
     {
-        $news = new NewsModels();
         $id = $_GET['id'];
-        $news = $news::getOneColumn('id', $id);
+        $news = NewsModels::getOneColumn('id', $id);
         $view = new Views();
         $view->new = $news;
         $view->display('news/newsUpdate.php');
@@ -53,7 +52,6 @@ class newsController
         $news->title = $_POST['newName'];
         $news->text = $_POST['newText'];
         $news->update();
-        var_dump($news->update());die;
         $view = new Views();
         $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $news->id);
     }
