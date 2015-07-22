@@ -6,6 +6,7 @@ class newsController
     public function actionShowAll()
     {
         $news = NewsModels::getAll();
+        //var_dump(count($news));die;
         $view = new Views();
         $view->news = $news;
         $view->display('news/newsAll.php');
@@ -13,11 +14,16 @@ class newsController
 
     public function actionShowOne()
     {
-        $id = $_GET['id'];
-        $news = NewsModels::getOne($id);
-        $view = new Views();
-        $view->new = $news;
-        $view->display('news/newsOne.php');
+        try{
+            $id = $_GET['id'];
+            $news = NewsModels::getOne($id);
+            $view = new Views();
+            $view->new = $news;
+            $view->display('news/newsOne.php');
+        } catch (ModelException $exc) {
+            $view = new Views();
+            $view->redirect('index.php?ctrl=news&act=404');
+        }
     }
 
     public function actionAddForm()
@@ -38,11 +44,16 @@ class newsController
 
     public function actionUpdateForm()
     {
-        $id = $_GET['id'];
-        $news = NewsModels::getOneColumn('id', $id);
-        $view = new Views();
-        $view->new = $news;
-        $view->display('news/newsUpdate.php');
+        try {
+            $id = $_GET['id'];
+            $news = NewsModels::getOneColumn('id', $id);
+            $view = new Views();
+            $view->new = $news;
+            $view->display('news/newsUpdate.php');
+        } catch (ModelException $exc) {
+            $view = new Views();
+            $view->redirect('index.php?ctrl=news&act=404');
+        }
     }
 
     public function actionUpdate()
@@ -63,5 +74,11 @@ class newsController
         $news->delete();
         $view = new Views();
         $view->redirect('index.php?ctrl=news&act=ShowAll');
+    }
+
+    public function action404()
+    {
+        $view = new Views();
+        $view->display('404.php');
     }
 }

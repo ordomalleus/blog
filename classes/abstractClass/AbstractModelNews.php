@@ -31,7 +31,7 @@ abstract class AbstractModelNews
         $config = new Config();
 
         $class = get_called_class();
-        $query = 'SELECT * FROM ' . static::getTable();
+        $query = 'SELECT * FROM ' . static::getTable() . ' order by id desc';
 
         $db = new PdoSql($config->bd, $config->server, $config->user, $config->password);
         $db->setClassName($class);
@@ -52,10 +52,11 @@ abstract class AbstractModelNews
 
         $res = $db->query($query, [':id' => $id]);
 
-        if (!empty($res)) {
-            return $res[0];
+        if (empty($res)) {
+            $exc = new ModelException();
+            throw $exc;
         }
-        return false;
+        return $res[0];
     }
 
     //Поиск по полю и значению, возвращает обект
@@ -69,10 +70,12 @@ abstract class AbstractModelNews
         $query = 'SELECT * FROM ' . static::getTable() . ' WHERE ' . $column . '=:value';
         $res = $db->query($query, [':value' => $value]);
 
-        if (!empty($res)) {
-            return $res[0];
+        if (empty($res)) {
+            $exc = new ModelException();
+            throw $exc;
         }
-        return false;
+
+        return $res[0];
     }
 
     protected function insert()
@@ -140,7 +143,7 @@ abstract class AbstractModelNews
 
     public function save()
     {
-        if(!isset($this->id)){
+        if (!isset($this->id)) {
             $this->insert();
         } else {
             $this->update();

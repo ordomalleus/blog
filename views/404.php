@@ -23,13 +23,11 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div>
-                    <h1>Главная страница</h1>
-                </div>
-                <div>
-                    <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">показать все
-                        новости</a>
-                </div>
+                <h1><span>404</span>Ошибка</h1>
+
+                <p>Станица не найдена</p>
+
+                <p><a href="index.php" class="btn btn-primary" role="button">Вернуться на главную</a></p>
             </div>
         </div>
     </div>
