@@ -45,7 +45,7 @@ class News
     {
         $id = $_GET['id'];
         $news = NewsModels::getOneColumn('id', $id);
-        $view = new \Views();
+        $view = new Views();
         $view->new = $news;
         $view->display('news/newsUpdate.php');
     }
