@@ -1,7 +1,7 @@
 <?php
 
 
-class ErorController
+class ErrorController
 {
     public function action404($exc)
     {
