@@ -8,12 +8,17 @@ $ctrl = isset($_GET['ctrl']) ? $_GET['ctrl'] : 'home';
 $act = isset($_GET['act']) ? $_GET['act'] : 'Index';
 
 $controllerClassName = $ctrl . 'Controller';
-require_once __DIR__ . '/controllers/' . $controllerClassName . '.php';
-
-$controller = new $controllerClassName;
 
 $method = 'action' . $act;
-$controller->$method();
+
+//ловим 404 ошибку
+try {
+    $controller = new $controllerClassName;
+    $controller->$method();
+} catch (ModelException $exc) {
+    $controller = new ErorController();
+    $controller->action404($exc);
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -23,10 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $act = isset($_POST['act']) ? $_POST['act'] : 'Index';
 
     $controllerClassName = $ctrl . 'Controller';
-    require_once __DIR__ . '/controllers/' . $controllerClassName . '.php';
-
-    $controller = new $controllerClassName;
 
     $method = 'action' . $act;
-    $controller->$method();
+
+    //ловим 404 ошибку
+    try {
+        $controller = new $controllerClassName;
+        $controller->$method();
+    } catch (ModelException $exc) {
+        $controller = new ErorController();
+        $controller->action404($exc);
+    }
 }

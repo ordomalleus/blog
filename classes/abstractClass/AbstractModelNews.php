@@ -53,7 +53,7 @@ abstract class AbstractModelNews
         $res = $db->query($query, [':id' => $id]);
 
         if (empty($res)) {
-            $exc = new ModelException();
+            $exc = new ModelException('Не найденно в базе по id');
             throw $exc;
         }
         return $res[0];
@@ -71,7 +71,7 @@ abstract class AbstractModelNews
         $res = $db->query($query, [':value' => $value]);
 
         if (empty($res)) {
-            $exc = new ModelException();
+            $exc = new ModelException('Не найденно в базе по id');
             throw $exc;
         }
 

@@ -27,6 +27,8 @@ header('Content-Type: text/html; charset=utf-8');
 
                 <p>Станица не найдена</p>
 
+                <p>Причина ошибки: <?php echo $exc; ?></p>
+
                 <p><a href="index.php" class="btn btn-primary" role="button">Вернуться на главную</a></p>
             </div>
         </div>

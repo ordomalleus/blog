@@ -23,7 +23,7 @@ header('Content-Type: text/html; charset=utf-8');
             <div class="col-md-12">
                 <div>
                     <h1>Страница новостей</h1>
-                    <a href="index.php" type="button" class="btn btn-primary">Вернуться на главную</a>
+                    <a href="" type="button" class="btn btn-primary">Вернуться на главную</a>
                     <a href="index.php?ctrl=news&act=AddForm" type="button" class="btn btn-success">Добавить новость</a>
                 </div>
                 <div>
