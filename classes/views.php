@@ -1,7 +1,10 @@
 <?php
 
+namespace Aplication\Classes;
+
+
 class Views
-    implements Countable, Iterator
+    implements \Countable, \Iterator
 {
 
     protected $data = [];

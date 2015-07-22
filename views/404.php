@@ -29,7 +29,7 @@ header('Content-Type: text/html; charset=utf-8');
 
                 <p>Причина ошибки: <?php echo $exc; ?></p>
 
-                <p><a href="index.php" class="btn btn-primary" role="button">Вернуться на главную</a></p>
+                <p><a href="/index.php" class="btn btn-primary" role="button">Вернуться на главную</a></p>
             </div>
         </div>
     </div>

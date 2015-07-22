@@ -1,5 +1,8 @@
-RewriteEngine On
+#RewriteEngine On
 
-RewriteBase /
+#RewriteBase /
 
-RewriteRule ^(.*)$ index.php
+#RewriteRule ^(.*)$ index.php
+
+
+

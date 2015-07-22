@@ -1,11 +1,14 @@
 <?php
 
 
-class News extends AbstractModelBlog
+namespace Aplication\Models;
+/**
+ * Class News
+ * @property $id
+ * @property $title
+ * @property $text
+ */
+class News extends \AbstractModelNews
 {
-    public $id;
-    public $title;
-    public $text;
     protected static $table = 'news';
-    protected static $class = 'News';
 }

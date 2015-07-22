@@ -1,12 +1,16 @@
 <?php
 
-class newsController
+namespace Aplication\Controllers;
+
+use Aplication\Models\News as NewsModels;
+use Aplication\Classes\Views;
+
+class News
 {
 
     public function actionShowAll()
     {
         $news = NewsModels::getAll();
-        //var_dump(count($news));die;
         $view = new Views();
         $view->news = $news;
         $view->display('news/newsAll.php');
@@ -41,7 +45,7 @@ class newsController
     {
         $id = $_GET['id'];
         $news = NewsModels::getOneColumn('id', $id);
-        $view = new Views();
+        $view = new \Views();
         $view->new = $news;
         $view->display('news/newsUpdate.php');
     }
