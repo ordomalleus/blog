@@ -21,29 +21,27 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="container">
         <div class="row-">
             <col-md-12>
-                <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                <a class="btn btn-primary" role="button" href="/news/showall">Вкрнуться к новостям</a>
             </col-md-12>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form id="newsAdd" class="form-horizontal" accept-charset="UTF-8"
-                      method="POST" action="index.php">
-                    <form class="form-horizontal" accept-charset="UTF-8"
-                          method="POST" action="index.php">
-                        <input type="hidden" name="ctrl" value="news"/>
-                        <input type="hidden" name="act" value="Add"/>
+                <form class="form-horizontal" accept-charset="UTF-8"
+                      method="POST" action="/index.php">
+                    <input type="hidden" name="ctrl" value="news"/>
+                    <input type="hidden" name="act" value="add"/>
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Загаловок Новости</label>
-                            <input type="text" class="form-control"
-                                   id="exampleInputEmail1" placeholder="Загаловок" name="newName">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Текст новости</label>
-                            <textarea class="form-control" rows="3" name="newText"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Обубликовать новость</button>
-                    </form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Загаловок Новости</label>
+                        <input type="text" class="form-control"
+                               id="exampleInputEmail1" placeholder="Загаловок" name="newName">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Текст новости</label>
+                        <textarea class="form-control" rows="3" name="newText"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Обубликовать новость</button>
+                </form>
             </div>
         </div>
     </div>

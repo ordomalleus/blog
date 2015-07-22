@@ -23,14 +23,14 @@ header('Content-Type: text/html; charset=utf-8');
             <div class="col-md-12">
                 <div>
                     <h1>Страница новостей</h1>
-                    <a href="/blog" type="button" class="btn btn-primary">Вернуться на главную</a>
-                    <a href="/blog" type="button" class="btn btn-success">Добавить новость</a>
+                    <a href="/" type="button" class="btn btn-primary">Вернуться на главную</a>
+                    <a href="/news/AddForm" type="button" class="btn btn-success">Добавить новость</a>
                 </div>
                 <div>
                     <?php foreach ($news as $new): ?>
                         <div>
                             <h2>
-                                <a href="<?php echo 'index.php?ctrl=news&act=ShowOne&id=' . $new->id; ?>">
+                                <a href="<?php echo '/news/ShowOne?id=' . $new->id; ?>">
                                     <?php echo $new->title; ?>
                                 </a>
                             </h2>

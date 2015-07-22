@@ -25,14 +25,14 @@ header('Content-Type: text/html; charset=utf-8');
                     <p>Страница одной новости</p>
                 </div>
                 <div>
-                    <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к
+                    <a class="btn btn-primary" role="button" href="/news/ShowAll">Вкрнуться к
                         новостям</a>
                     <a class="btn btn-warning" role="button"
-                       href="<?php echo 'index.php?ctrl=news&act=UpdateForm&id=' . $new->id; ?>">
+                       href="<?php echo '/news/UpdateForm?id=' . $new->id; ?>">
                         Изменить новость
                     </a>
                     <a class="btn btn-danger" role="button"
-                       href="<?php echo 'index.php?ctrl=news&act=Del&id=' . $new->id; ?>">
+                       href="<?php echo '/news/Del?id=' . $new->id; ?>">
                         Удалить новость
                     </a>
 
