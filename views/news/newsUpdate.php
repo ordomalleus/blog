@@ -21,13 +21,13 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="container">
         <div class="row-">
             <col-md-12>
-                <a class="btn btn-primary" role="button" href="index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                <a class="btn btn-primary" role="button" href="/index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
             </col-md-12>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <form class="form-horizontal" accept-charset="UTF-8"
-                      method="POST" action="index.php">
+                      method="POST" action="/index.php">
                     <input type="hidden" name="ctrl" value="news"/>
                     <input type="hidden" name="act" value="Update"/>
                     <input type="hidden" name="id" value="<?php echo $new->id; ?>"/>

@@ -1,14 +1,17 @@
 <?php
 
+namespace Aplication\Classes;
+
+
 class Views
-    implements Countable, Iterator
+    implements \Countable, \Iterator
 {
 
     protected $data = [];
 
     //пустое значение если от корня или папку в /foo/
-    protected $redirectBase = '/blog/';
-    public $base = 'blog';
+    protected $redirectBase = '/';
+    public $base = '';
 
     //Магия в ООП php. Задает произвольные свойства у объекта
     public function __set($key, $value)

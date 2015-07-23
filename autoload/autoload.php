@@ -12,6 +12,15 @@ function __autoload($class)
         require_once __DIR__ . '/../classes/abstractClass/' . $class . '.php';
     } elseif (file_exists(__DIR__ . '/../' . $class . '.php')) {
         require_once __DIR__ . '/../' . $class . '.php';
+    } else {
+        //Пространства имен
+        $classParts = explode('\\', $class);
+        $classParts[0] = __DIR__ . '/../';
+        $path = implode(DIRECTORY_SEPARATOR, $classParts) . '.php';
+        if(file_exists($path)){
+            require_once $path;
+        }
+
     }
 
 }

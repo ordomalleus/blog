@@ -1,4 +1,10 @@
-RewriteEngine On
+#RewriteEngine On
+
+#RewriteBase /
+
+#RewriteRule ^(.*)$ index.php
+
+
 
 RewriteBase /
 
