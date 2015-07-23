@@ -1,5 +1,7 @@
 <?php
 
+use Aplication\Classes\Views;
+
 
 class ErrorController
 {
