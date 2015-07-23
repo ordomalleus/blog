@@ -21,7 +21,7 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="container">
         <div class="row-">
             <col-md-12>
-                <a class="btn btn-primary" role="button" href="/index.php?ctrl=news&act=ShowAll">Вкрнуться к новостям</a>
+                <a class="btn btn-primary" role="button" href="/news/showall">Вкрнуться к новостям</a>
             </col-md-12>
         </div>
         <div class="row">
