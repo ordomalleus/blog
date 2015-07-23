@@ -30,7 +30,7 @@ header('Content-Type: text/html; charset=utf-8');
                     <?php foreach ($news as $new): ?>
                         <div>
                             <h2>
-                                <a href="<?php echo '/news/showone?id=' . $new->id; ?>">
+                                <a href="<?php echo '/news/showone/' . $new->id; ?>">
                                     <?php echo $new->title; ?>
                                 </a>
                             </h2>

@@ -5,7 +5,7 @@ namespace Aplication\Controllers;
 use Aplication\Classes\Views;
 
 
-class home
+class Home
 {
     public function actionIndex()
     {

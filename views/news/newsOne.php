@@ -28,11 +28,11 @@ header('Content-Type: text/html; charset=utf-8');
                     <a class="btn btn-primary" role="button" href="/news/showall">Вкрнуться к
                         новостям</a>
                     <a class="btn btn-warning" role="button"
-                       href="<?php echo '/news/UpdateForm?id=' . $new->id; ?>">
+                       href="<?php echo '/news/UpdateForm/' . $new->id; ?>">
                         Изменить новость
                     </a>
                     <a class="btn btn-danger" role="button"
-                       href="<?php echo '/news/Del?id=' . $new->id; ?>">
+                       href="<?php echo '/news/Del/' . $new->id; ?>">
                         Удалить новость
                     </a>
 
