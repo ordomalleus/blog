@@ -27,9 +27,7 @@ header('Content-Type: text/html; charset=utf-8');
         <div class="row">
             <div class="col-md-12">
                 <form class="form-horizontal" accept-charset="UTF-8"
-                      method="POST" action="/index.php">
-                    <input type="hidden" name="ctrl" value="news"/>
-                    <input type="hidden" name="act" value="Update"/>
+                      method="POST" action="/news/update">
                     <input type="hidden" name="id" value="<?php echo $new->id; ?>"/>
 
                     <div class="form-group">

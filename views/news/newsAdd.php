@@ -27,10 +27,7 @@ header('Content-Type: text/html; charset=utf-8');
         <div class="row">
             <div class="col-md-12">
                 <form class="form-horizontal" accept-charset="UTF-8"
-                      method="POST" action="/index.php">
-                    <input type="hidden" name="ctrl" value="news"/>
-                    <input type="hidden" name="act" value="add"/>
-
+                      method="POST" action="/news/add">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Загаловок Новости</label>
                         <input type="text" class="form-control"

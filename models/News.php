@@ -2,6 +2,7 @@
 
 
 namespace Aplication\Models;
+
 /**
  * Class News
  * @property $id

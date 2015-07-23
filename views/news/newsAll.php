@@ -34,6 +34,7 @@ header('Content-Type: text/html; charset=utf-8');
                                     <?php echo $new->title; ?>
                                 </a>
                             </h2>
+
                             <div>
                                 <p><?php echo $new->text; ?></p>
                             </div>

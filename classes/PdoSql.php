@@ -11,9 +11,9 @@ class PdoSql
     {
         try {
             $this->dbh = new PDO('mysql:host=' . $serverBd . ';dbname=' . $baseBd . ';charset=UTF8;', $userBd, $pwdBd);
-        } catch (PDOException $Exception){
+        } catch (PDOException $Exception) {
             $exc = new ModelException('Не удолось подключиться к базе в файле ' . __FILE__
-                . '<br /> Класс вызвовший ошибку: ' .get_called_class()
+                . '<br /> Класс вызвовший ошибку: ' . get_called_class()
             );
             throw $exc;
         }
