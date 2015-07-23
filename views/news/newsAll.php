@@ -24,7 +24,7 @@ header('Content-Type: text/html; charset=utf-8');
                 <div>
                     <h1>Страница новостей</h1>
                     <a href="/blog" type="button" class="btn btn-primary">Вернуться на главную</a>
-                    <a href="/blog" type="button" class="btn btn-success">Добавить новость</a>
+                    <a href="/blog/news/addform" type="button" class="btn btn-success">Добавить новость</a>
                 </div>
                 <div>
                     <?php foreach ($news as $new): ?>
