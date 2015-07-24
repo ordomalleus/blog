@@ -17,7 +17,13 @@ $method = 'action' . $act;
 
 //ловим 404 ошибку
 try {
+    if (!class_exists($controllerClassName)) {
+        throw new ModelException('Не удалось найти класс в файле: ' . __FILE__);
+    }
     $controller = new $controllerClassName;
+    if (!method_exists($controllerClassName, $method)) {
+        throw new ModelException('Не удалось найти метод у класса в файле: ' . __FILE__);
+    }
     if (isset($param)) {
         $controller->$method($param);
     } else {
