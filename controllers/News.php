@@ -16,9 +16,9 @@ class News
         $view->display('news/newsAll.php');
     }
 
-    public function actionShowOne()
+    public function actionShowOne($id)
     {
-        $id = $_GET['id'];
+        $id = (int)$id;
         $news = NewsModels::getOne($id);
         $view = new Views();
         $view->new = $news;
@@ -38,12 +38,12 @@ class News
         $news->text = $_POST['newText'];
         $news->save();
         $view = new Views();
-        $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $news->id);
+        $view->redirect('news/showone/' . $news->id);
     }
 
-    public function actionUpdateForm()
+    public function actionUpdateForm($id)
     {
-        $id = $_GET['id'];
+        $id = (int)$id;
         $news = NewsModels::getOneColumn('id', $id);
         $view = new Views();
         $view->new = $news;
@@ -58,17 +58,15 @@ class News
         $news->text = $_POST['newText'];
         $news->save();
         $view = new Views();
-        $view->redirect('index.php?ctrl=news&act=ShowOne&id=' . $news->id);
+        $view->redirect('news/showone/' . $news->id);
     }
 
-    public function actionDel()
+    public function actionDel($id)
     {
-        $id = $_GET['id'];
+        $id = (int)$id;
         $news = NewsModels::getOneColumn('id', $id);
         $news->delete();
         $view = new Views();
-        $view->redirect('index.php?ctrl=news&act=ShowAll');
-        $mailer = new \PHPMailer();
-        $mailer->
+        $view->redirect('news/showall');
     }
 }

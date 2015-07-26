@@ -6,10 +6,17 @@ class PdoSql
     private $dbh;
     private $className = 'stdClass';
 
+    //Подключение к базе с проверкой на исключение
     public function __construct($baseBd, $serverBd, $userBd, $pwdBd)
     {
-        $this->dbh = new PDO('mysql:host=' . $serverBd . ';dbname=' . $baseBd . ';charset=UTF8;', $userBd, $pwdBd);
-        //var_dump($this->dbh);die;
+        try {
+            $this->dbh = new PDO('mysql:host=' . $serverBd . ';dbname=' . $baseBd . ';charset=UTF8;', $userBd, $pwdBd);
+        } catch (PDOException $Exception) {
+            $exc = new ModelException('Не удолось подключиться к базе в файле ' . __FILE__
+                . '<br /> Класс вызвовший ошибку: ' . get_called_class()
+            );
+            throw $exc;
+        }
     }
 
     public function setClassName($className)

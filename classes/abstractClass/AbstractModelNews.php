@@ -53,7 +53,7 @@ abstract class AbstractModelNews
         $res = $db->query($query, [':id' => $id]);
 
         if (empty($res)) {
-            $exc = new ModelException('Не найденно в базе по id');
+            $exc = new ModelException('Не найденно в базе по id. В файле: ' . __FILE__ . '. В классе: ' . get_called_class());
             throw $exc;
         }
         return $res[0];
@@ -71,7 +71,7 @@ abstract class AbstractModelNews
         $res = $db->query($query, [':value' => $value]);
 
         if (empty($res)) {
-            $exc = new ModelException('Не найденно в базе по id');
+            $exc = new ModelException('Не найденно в базе по id. В файле: ' . __FILE__  . '. В классе: ' . get_called_class());
             throw $exc;
         }
 

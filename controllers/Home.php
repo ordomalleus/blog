@@ -2,12 +2,14 @@
 
 namespace Aplication\Controllers;
 
+use Aplication\Classes\Views;
 
-class home
+
+class Home
 {
     public function actionIndex()
     {
-        $view = new \Views();
+        $view = new Views();
         $view->display('/../views/index.php');
     }
 }
