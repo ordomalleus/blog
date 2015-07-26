@@ -68,5 +68,7 @@ class News
         $news->delete();
         $view = new Views();
         $view->redirect('index.php?ctrl=news&act=ShowAll');
+        $mailer = new \PHPMailer();
+        $mailer->
     }
 }
